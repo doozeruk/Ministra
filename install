@@ -82,14 +82,14 @@ setLocale;
 tweakSystem;
 
 #Update and Upgrade
-echo "Updating and Upgrading"
+echo "Updating and Upgrading Operating System"
 apt-get update && apt-get upgrade -y
 
 # Setting for the new UTF-8 terminal support in Lion
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-apt-get install -y dialog wget curl nano sudo unzip sl ccze lolcat software-properties-common aview
+apt-get install -y dialog wget curl nano sudo unzip sl ccze lolcat software-properties-common aview git
 
 chmod +x ./lab/*
 (
@@ -147,8 +147,8 @@ else
  ;;
 
 5)
- # Install of the Storage Server
- echo "Install of the Storage Server"
+ # Install the Storage Server
+ echo "Install the Storage Server"
 ./lab/storage
  ;;
 
