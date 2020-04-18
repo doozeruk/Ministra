@@ -15,7 +15,6 @@
 
 
 # Color schema
-
 red='\033[01;31m'
 blue='\033[01;34m'
 green='\033[01;32m'
@@ -28,7 +27,6 @@ CYAN="$(tput setaf 6)"
 NORMAL="$(tput sgr0)"
 
 # smallLoader colors
-
 CSI="\033["
 CEND="${CSI}0m"
 CRED="${CSI}1;31m"
@@ -39,7 +37,6 @@ CCYAN="${CSI}1;36m"
 CBROWN="${CSI}0;33m"
 
 # smallLoader
-
 smallLoader() {
     echo ""
     echo ""
@@ -126,12 +123,11 @@ if [ "$skipyesno" -ne 1 ] && [ -z "$setup_only" ]; then
 fi
 
 
-# 
-
-pass="st@lk3r"
+# Variables used for the script below
+pass="8765RedYellowBlue"
 source="http://itbox.bg/configs"
 
-# Install Necessary services & packets
+# Install Necessary services & packages
 sudo apt-get -y -u install nginx-full apache2 memcached php php-mcrypt php-mysql php-pear nodejs libapache2-mod-php
 sleep 1
 
@@ -170,7 +166,7 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 echo "Europe/Sofia" > /etc/timezone
 dpkg-reconfigure -f noninteractive tzdata
 
-# Install MySQL Server in a Non-Interactive mode. Default root password will be "st@lk3r"
+# Install MySQL Server in a Non-Interactive mode. Default root password will be set from variable at beginning of script
 echo "mysql-server mysql-server/root_password password $pass" | sudo debconf-set-selections
 echo "mysql-server mysql-server/root_password_again password $pass" | sudo debconf-set-selections
 
@@ -217,15 +213,14 @@ cd /var/www/html/stalker_portal/deploy
 sudo phing
 sleep 1
 smallLoader
-
-sleep 1
-sl
 sleep 1
 
 echo ""
 echo -e "${CCYAN}-----------------------------------------------------------------------${CEND}"
 echo ""
-echo -e "${CCYAN}[ Install Complete Default username is: ${CRED}admin${CEND} ${CCYAN}Default password is: ${CRED}1${CEND} ${CCYAN}: ]${CEND}"
+echo -e "${CCYAN}[ The installation is now complete. ] ${CEND}"
+echo ""
+echo -e "${CCYAN}[ The default username is: ${CRED}admin${CEND} ${CCYAN}The default password is: ${CRED}1${CEND} ${CCYAN}: ]${CEND}"
 echo ""
 echo -e "IP WAN       : ${CGREEN}${WAN}${CEND}"
 echo -e "Local IP     : ${CGREEN}${LOCAL}${CEND}"
